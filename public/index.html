@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un lugar donde empezar</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="authScreen" class="login-screen">
+    <div class="login-card">
+      <div class="eyebrow sans">Salud mental · Perú</div>
+      <h2 id="authTitle">Iniciar sesión</h2>
+      <p class="section-note" id="authSubtitle">Ingresa con tu cuenta para participar en la comunidad.</p>
+      <p id="connectionWarning" class="auth-error sans" style="display:none;"></p>
+      <form id="authForm">
+        <input type="text" id="usernameInput" class="sans" placeholder="Usuario" autocomplete="username" required>
+        <input type="password" id="passwordInput" class="sans" placeholder="Contraseña" autocomplete="current-password" required>
+        <ul id="passwordRules" class="password-rules sans">
+          <li data-rule="length">Al menos 8 caracteres</li>
+          <li data-rule="letter">Una letra</li>
+          <li data-rule="number">Un número</li>
+          <li data-rule="symbol">Un símbolo (ej. @ # $ %)</li>
+        </ul>
+        <button type="submit" class="btn" id="authSubmitBtn">Iniciar sesión</button>
+      </form>
+      <p id="authError" class="auth-error sans"></p>
+      <button class="link-btn" id="authSwitchBtn">¿No tienes cuenta? Crear una</button>
+    </div>
+  </div>
+
+  <div id="appContent" class="app-content">
+
+    <div class="user-bar sans">
+      <span id="userGreeting"></span>
+      <div class="user-bar-actions">
+        <button class="link-btn" id="toggleHistorialBtn">Ver mi historial</button>
+        <button class="link-btn" id="toggleChangePwBtn">Cambiar contraseña</button>
+        <button class="link-btn" id="toggleAdminBtn" style="display:none;">Panel de administración</button>
+        <button class="link-btn" id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </div>
+
+    <div id="historialPanel" class="historial-panel">
+      <div class="historial-header sans">
+        <span>Tu historial de pulsaciones (<span id="logCount">0</span>)</span>
+        <button class="link-btn" id="closeHistorialBtn">Cerrar</button>
+      </div>
+      <ul id="logList" class="log-list"></ul>
+    </div>
+
+    <div id="changePwPanel" class="historial-panel">
+      <div class="historial-header sans">
+        <span>Cambiar contraseña</span>
+        <button class="link-btn" id="closeChangePwBtn">Cerrar</button>
+      </div>
+      <form id="changePwForm" class="change-pw-form sans">
+        <input type="password" id="currentPasswordInput" placeholder="Contraseña actual" autocomplete="current-password" required>
+        <input type="password" id="newPasswordInput" placeholder="Nueva contraseña" autocomplete="new-password" required>
+        <ul class="password-rules sans">
+          <li>Al menos 8 caracteres, con letras, números y un símbolo (ej. @ # $ %).</li>
+        </ul>
+        <button type="submit" class="btn">Actualizar contraseña</button>
+        <p id="changePwMsg" class="auth-error sans"></p>
+      </form>
+    </div>
+
+    <div id="adminPanel" class="historial-panel admin-panel">
+      <div class="historial-header sans">
+        <span>Panel de administración</span>
+        <button class="link-btn" id="closeAdminBtn">Cerrar</button>
+      </div>
+      <div id="adminStats" class="admin-stats sans">Cargando…</div>
+    </div>
+
+    <button class="float-help sans" id="floatHelpBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Ayuda ahora
+    </button>
+
+    <header class="hero">
+      <div class="eyebrow sans">Salud mental · Perú</div>
+      <h1>Si estás pasando un momento difícil, no tienes que resolverlo solo.</h1>
+      <p class="lede">Líneas de ayuda gratuitas, formas de reconocer cuando alguien lo necesita, ejercicios para momentos de mucha angustia, y una comunidad donde apoyarse. No reemplaza la atención profesional, pero puede ser un primer paso.</p>
+    </header>
+
+    <section id="ayuda">
+      <h2>Ayuda inmediata</h2>
+      <p class="section-note">Gratuitas y disponibles las 24 horas, desde cualquier operador en Perú.</p>
+      <div class="contact-list">
+        <div class="contact">
+          <div>
+            <div class="contact-name">Línea 113, opción 5 — MINSA</div>
+            <div class="contact-desc">Orientación en salud mental y prevención del suicidio. Atendida por psicólogos.</div>
+          </div>
+          <a class="dial" href="tel:113" data-log="Llamar Línea 113">Llamar al 113</a>
+        </div>
+        <div class="contact">
+          <div>
+            <div class="contact-name">SAMU — 106</div>
+            <div class="contact-desc">Emergencia médica si hay riesgo inminente para la vida.</div>
+          </div>
+          <a class="dial" href="tel:106" data-log="Llamar SAMU 106">Llamar al 106</a>
+        </div>
+        <div class="contact">
+          <div>
+            <div class="contact-name">Línea 100 — MIMP</div>
+            <div class="contact-desc">Contención emocional y orientación frente a violencia familiar.</div>
+          </div>
+          <a class="dial" href="tel:100" data-log="Llamar Línea 100">Llamar al 100</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="senales">
+      <h2>Señales que vale la pena notar</h2>
+      <p class="section-note">En uno mismo o en alguien cercano. Ninguna señal aislada confirma nada, pero varias juntas merecen atención.</p>
+      <div class="signals-grid">
+        <div class="signal">Aislarse de personas y actividades que antes disfrutaba</div>
+        <div class="signal">Cambios marcados en el sueño o el apetito</div>
+        <div class="signal">Hablar de sentirse una carga o de no tener salida</div>
+        <div class="signal">Cambios bruscos de ánimo, o una calma repentina tras una crisis</div>
+        <div class="signal">Regalar pertenencias o despedirse sin motivo claro</div>
+        <div class="signal">Aumento en el consumo de alcohol u otras sustancias</div>
+      </div>
+    </section>
+
+    <section id="respirar">
+      <h2>Un ejercicio para el momento</h2>
+      <p class="section-note">Respiración 4-7-8. Ayuda a bajar la activación del cuerpo cuando la angustia sube rápido. Sigue el círculo.</p>
+      <div class="breath-wrap">
+        <div class="breath-circle" id="breathCircle">Inhala</div>
+        <div class="breath-controls">
+          <button class="btn" id="startBtn">Comenzar</button>
+          <button class="btn secondary" id="stopBtn">Detener</button>
+        </div>
+        <div class="breath-count sans" id="breathCount"></div>
+      </div>
+    </section>
+
+    <section id="comunidad">
+      <h2>Comunidad de apoyo</h2>
+      <p class="section-note">Comparte cómo te sientes o una idea. Cualquier persona con cuenta puede comentar y ofrecer apoyo o consejo.</p>
+
+      <div class="post-form">
+        <textarea id="postInput" class="sans" maxlength="500" placeholder="¿Cómo te sientes hoy, o qué quieres compartir?"></textarea>
+        <div class="post-form-footer sans">
+          <span id="charCount">500 caracteres restantes</span>
+          <button class="btn" id="publishBtn">Publicar</button>
+        </div>
+      </div>
+
+      <div id="postRiskNotice" class="risk-notice sans">
+        <span id="postRiskMessage"></span>
+        <div class="risk-notice-actions">
+          <a class="dial" href="tel:113" data-log="Llamar Línea 113 (desde comunidad)">Llamar al 113</a>
+          <button class="link-btn" id="dismissPostRiskBtn">Entendido</button>
+        </div>
+      </div>
+
+      <div id="wallFeed" class="wall-feed">Cargando publicaciones…</div>
+    </section>
+
+    <section id="estrategias">
+      <h2>Mientras tanto, algo que puede ayudar</h2>
+      <p class="section-note">No resuelven la causa de fondo, pero pueden hacer un mal momento más llevadero.</p>
+      <div class="strategy-list">
+        <div class="strategy">
+          <div class="strategy-mark">01</div>
+          <div>
+            <div class="strategy-title">Nombra lo que sientes, en voz alta o por escrito</div>
+            <div class="strategy-body">Ponerle palabras a una emoción, aunque sea de forma simple, reduce su intensidad en el cuerpo.</div>
+          </div>
+        </div>
+        <div class="strategy">
+          <div class="strategy-mark">02</div>
+          <div>
+            <div class="strategy-title">Busca a una persona, no una solución</div>
+            <div class="strategy-body">Contarle a alguien de confianza lo que estás sintiendo, sin buscar que lo arregle, ya alivia.</div>
+          </div>
+        </div>
+        <div class="strategy">
+          <div class="strategy-mark">03</div>
+          <div>
+            <div class="strategy-title">Aleja lo que pueda usarse para hacerte daño</div>
+            <div class="strategy-body">Si el pensamiento se vuelve concreto, poner distancia física de esos medios, aunque sea temporal, salva vidas.</div>
+          </div>
+        </div>
+        <div class="strategy">
+          <div class="strategy-mark">04</div>
+          <div>
+            <div class="strategy-title">Reduce la decisión al siguiente minuto</div>
+            <div class="strategy-body">No necesitas resolver el día completo. Solo necesitas llegar al siguiente minuto, y luego al que sigue.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="acompanar">
+      <h2>Si quieres acompañar a alguien más</h2>
+      <p class="section-note">Reconocer una señal en otra persona es, muchas veces, el paso que más importa.</p>
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-body">Pregunta directamente, sin rodeos. Preguntar sobre el tema no lo provoca; al contrario, suele ser un alivio para quien lo está pensando.</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-body">Escucha sin apurarte a dar consejos ni a minimizar lo que cuenta. No hace falta tener la respuesta.</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-body">No dejes a la persona sola si el riesgo parece inmediato. Acompáñala a llamar a la Línea 113 o a un centro de salud.</div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">4</div>
+        <div class="step-body">Después de la crisis, sigue presente. La recuperación no termina con la primera llamada.</div>
+      </div>
+    </section>
+
+    <footer class="sans">
+      Esta guía es informativa y no reemplaza una evaluación profesional. Si tú o alguien que conoces está en peligro inmediato, llama al 106 (SAMU) o acude a la emergencia más cercana.
+    </footer>
+
+  </div><!-- /appContent -->
+
+  <script src="app.js"></script>
+</body>
+</html>
