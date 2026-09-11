@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": "mtwjozd4jouhmb",
+      "username": "admin",
+      "usernameLower": "admin",
+      "passwordHash": "$2a$10$tnO82cO1ooykiO3BpVcZS.ND7/rNtZVUdPb118/rYuTY184RxmyKa",
+      "role": "admin",
+      "createdAt": "2026-09-11T05:58:13.868Z"
+    }
+  ],
+  "posts": [],
+  "comments": [],
+  "supports": [],
+  "logs": [
+    {
+      "id": "mtwjrmzp8dasm8",
+      "userId": "mtwjozd4jouhmb",
+      "action": "Inicio de sesión",
+      "timestamp": "2026-09-11T06:00:17.701Z"
+    },
+    {
+      "id": "mtwjt8af7q5bvl",
+      "userId": "mtwjozd4jouhmb",
+      "action": "Botón: Comenzar respiración",
+      "timestamp": "2026-09-11T06:01:31.959Z"
+    },
+    {
+      "id": "mtwjtde8cq3zp9",
+      "userId": "mtwjozd4jouhmb",
+      "action": "Botón: Detener respiración",
+      "timestamp": "2026-09-11T06:01:38.576Z"
+    }
+  ]
+}
